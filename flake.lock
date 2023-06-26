@@ -31,10 +31,62 @@
         "type": "indirect"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1672428209,
+        "narHash": "sha256-eejhqkDz2cb2vc5VeaWphJz8UXNuoNoM8/Op8eWv2tQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "293a28df6d7ff3dec1e61e37cc4ee6e6c0fb0847",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nmd": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2",
+        "scss-reset": "scss-reset"
+      },
+      "locked": {
+        "lastModified": 1683614069,
+        "narHash": "sha256-iq5HgZyr5oStuu6sj5xQkYiBRfFvyyfPBYDKwjklPcY=",
+        "ref": "refs/heads/master",
+        "rev": "07a6db31ae19d728ef1e4dc02b9687a6c359c216",
+        "revCount": 57,
+        "type": "git",
+        "url": "https://git.sr.ht/~rycee/nmd"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.sr.ht/~rycee/nmd"
+      }
+    },
     "root": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nmd": "nmd"
+      }
+    },
+    "scss-reset": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1631450058,
+        "narHash": "sha256-muDlZJPtXDIGevSEWkicPP0HQ6VtucbkMNygpGlBEUM=",
+        "owner": "andreymatin",
+        "repo": "scss-reset",
+        "rev": "0cf50e27a4e95e9bb5b1715eedf9c54dee1a5a91",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andreymatin",
+        "repo": "scss-reset",
+        "type": "github"
       }
     }
   },

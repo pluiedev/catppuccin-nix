@@ -2,13 +2,14 @@
   description = "Soothing pastel theme for Nix";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nmd.url = "git+https://git.sr.ht/~rycee/nmd";
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
     };
   };
 
-  outputs = { nixpkgs, ... }:
+  outputs = { nixpkgs, nmd, ... }:
     let
       systems = [
         "x86_64-linux"
@@ -30,5 +31,10 @@
       nixosModules.catppuccin = import ./modules/nixos nixpkgs;
       homeManagerModules.catppuccin = import ./modules/home-manager nixpkgs;
       formatter = forEachSystem ({ pkgs, ... }: pkgs.nixpkgs-fmt);
+      docs = forAllSystems (system:
+        import ./docs nixpkgs {
+          nmd = builtins.mapAttrs (_key: value: value.${system}) nmd;
+        }
+      );
     };
 }
